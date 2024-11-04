@@ -1,80 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/widgets.dart';
-
 
 void main() {
-  runApp(const MyApp());
+  runApp(PerguntasApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class PerguntasApp extends StatelessWidget {
 
-  
+  void responder() {
+    print("Pergunta respondida")
+  }
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
+    final Perguntas = [
+    'Qual é sua cor favorita ?'
+    'Qual é seu animal favorito ?'
+  ];
+
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-      
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellow),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Meu primeiro aplicativo'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-  
-    return Scaffold(
-      appBar: AppBar(
-        
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        
-        title: Text(widget.title),
-      ),
-      body: Center(
-       
-        child: Column(
-          
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Olá Mundo!!!',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+      home: Scaffold(
+         appBar: AppBar(
+          title: Text("Perguntas"),
+          ),
+     body: Column(
+           children: <Widget>[Text(Perguntas[0]),
+           ElevatedButton(
+            child: Text('Resposta 1'),
+            onPressed: null,
+             ),
+           ElevatedButton(
+            child: Text('Resposta 1'),
+            onPressed: null,
+             ),
+           ElevatedButton(
+            child: Text('Resposta 1'),
+            onPressed: null,
+             ),
           ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), 
+       ), 
+     ), 
     );
   }
 }
